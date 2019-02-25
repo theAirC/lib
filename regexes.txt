@@ -1,0 +1,9 @@
+Regexes:
+
+Events:
+\S+EVENT_(\S+) (.+?),?( +//)/<(.+?)\.?\n
+\L\u$1\E $2,$3$4\n
+
+Interrupts:
+\S+INT_(\S+)_MASK (.+?),?( +//)/<(.+?)\.?\n
+\L\u$1\E $2,$3$4\n
