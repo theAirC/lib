@@ -1,0 +1,10 @@
+# Test file
+# This file contains the unit tests in the order they need to be run.
+# All test files must end in '.test.cpp'.
+# Run 'tests.sh' that reads this file and compiles and runs the tests.
+
+# Generic
+  ./Generic/ReserveBits.test.cpp
+
+# Memory
+  ./Memory/BlockSpace/BlockSpace.test.cpp

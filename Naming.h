@@ -1,5 +1,14 @@
 #pragma once
 
+#ifdef __TESTING__
+#include <cassert>
+#include <cstdint>
+#include <cstdio>
+#else
+#include <modules/nrfx/nrfx.h>
+#define assert(condition) NRFX_ASSERT(condition)
+#endif
+
 typedef uint8_t  u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
@@ -20,10 +29,3 @@ typedef u8 byte;
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define rounddiv(x, y) (((2 * (x) / (y)) + 1) / 2)
 #define asize(array) (sizeof(array) / sizeof(array[0]))
-
-#ifdef __TESTING__
-#include <assert.h>
-#else
-#include <modules/nrfx/nrfx.h>
-#define assert(condition) NRFX_ASSERT(condition)
-#endif

@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"is",
+				"isFreed"
+			],
+			[
+				"r",
+				"rbs"
+			],
+			[
+				"bi",
+				"bid0"
+			],
+			[
+				"Blo",
+				"BlockSpace"
+			],
+			[
+				"b",
+				"bits"
+			],
+			[
+				"stdi",
+				"cstdio\tstandard header"
+			],
+			[
+				"rb",
+				"rbs_raw"
+			],
+			[
+				"_C",
+				"_CTZ"
+			],
+			[
+				"_",
+				"_CLZ"
+			],
+			[
+				"sin",
+				"singleLayer"
+			],
+			[
+				"RE",
+				"ReserveBitsUsing"
+			],
+			[
+				"cl",
+				"clzctz"
+			],
+			[
+				"Re",
+				"ReserveBits_Simple"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
 				"font-s",
 				"font-size\tproperty"
 			],
@@ -34,10 +90,6 @@
 			[
 				"st",
 				"style\tTag"
-			],
-			[
-				"Blo",
-				"BlockID_NULL"
 			],
 			[
 				"blo",
@@ -160,16 +212,8 @@
 				"cancelPacket"
 			],
 			[
-				"is",
-				"isPacketCanceled"
-			],
-			[
 				"isPa",
 				"isPacketComplete"
-			],
-			[
-				"inc",
-				"incompletePackets"
 			],
 			[
 				"pend",
@@ -320,10 +364,6 @@
 				"Config_Default"
 			],
 			[
-				"bi",
-				"bitOrder"
-			],
-			[
 				"Active_L",
 				"Active_Low"
 			],
@@ -340,20 +380,12 @@
 				"Register_ANY_Meas_mask"
 			],
 			[
-				"Re",
-				"Register_ANY_Meas_offset"
-			],
-			[
 				"me",
 				"measurementMode"
 			],
 			[
 				"ac",
 				"activateMeasurementMode"
-			],
-			[
-				"RE",
-				"Register_Gain_Gain_offset"
 			],
 			[
 				"Register_Gain_Gain_",
@@ -436,10 +468,6 @@
 				"define"
 			],
 			[
-				"b",
-				"bufferID"
-			],
-			[
 				"Dis",
 				"Disable"
 			],
@@ -486,34 +514,6 @@
 			[
 				"fc",
 				"fcRel"
-			],
-			[
-				"si",
-				"sineDT"
-			],
-			[
-				"y",
-				"yDiff"
-			],
-			[
-				"sign",
-				"signalDT"
-			],
-			[
-				"yC",
-				"yCFM"
-			],
-			[
-				"ca",
-				"calcFFT"
-			],
-			[
-				"yF",
-				"yFdB"
-			],
-			[
-				"sing",
-				"signalCT"
 			]
 		]
 	},
@@ -531,6 +531,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"al",
+				"AlignTab"
+			],
 			[
 				"ali",
 				"AlignTab"
@@ -574,20 +578,30 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/D/Sync/WorkSpace_S/EMB/SES/lib"
-	],
 	"file_history":
 	[
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/Generic/ReserveBits.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/SPI.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/GPIO.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/lib/Naming.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Instructions_testing.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Generic/ReserveBits.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Memory/BlockSpace/BlockSpace.test.cpp",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Memory/BlockSpace/BlockSpace.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Generic/ReserveBits.test.cpp",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Generic/ReserveBits.test.cpp.out",
+		"/C/Users/Route/Downloads/daisy_global_images_V9.6.11.0.ODLMIFF_8.1/flash_all_lock_crc.bat",
 		"/D/Sync/WorkSpace_S/EMB/SES/lib/Instructions.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Instructions_armv6m.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Devices/MAX9939.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Devices/Device_SPI.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/ADC.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/Radio.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/Helpers.h",
+		"/D/Sync/WorkSpace_S/EMB/SES/lib/Assert.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/Bridge/flash_placement.xml",
 		"/D/Sync/WorkSpace_S/EMB/SES/lib/Instruction.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/libPy/Instructions.py",
 		"/D/Sync/WorkSpace_S/EMB/SES/libPy/Memory/BlockSpace/BlockSpace.py",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/Memory/BlockSpace/BlockSpace.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/libPy/Naming.py",
 		"/C/Users/Route/Desktop/nm2.txt",
 		"/C/Users/Route/Downloads/lab8.txt",
@@ -605,15 +619,10 @@
 		"/D/Sync/WorkSpace_S/EMB/SES/Bridge/Boot.s",
 		"/D/Sync/WorkSpace_S/EMB/SES/Bridge/Cortex_M_Startup.s",
 		"/D/Sync/WorkSpace_S/EMB/SES/HS100R/trim.cpp",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/GPIO.h",
 		"/D/Sync/the Awesome/Python/bridgeDFU.py",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/ADC.h",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/SPI.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Pin.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/HS100R/Output/Common/Exe/HS100R.bin",
 		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/Adc.h",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Devices/MAX9939.h",
-		"/D/Sync/WorkSpace_S/EMB/SES/lib/System/Peripherals/Radio.h",
 		"/D/Sync/WorkSpace_S/EMB/SES/NRF51_Bootloader/flash_placement.xml",
 		"/D/Sync/WorkSpace_S/EMB/SES/NRF51_Bootloader/main.cpp",
 		"/D/Sync/WorkSpace_S/EMB/SES/HS100R/HS100R.emProject",
@@ -698,20 +707,11 @@
 		"/D/Sync/Sivitecs/PCBs/Ocyon Railer Mini/Rev0A/Ocyon Railer Mini.sch",
 		"/D/Sync/Sivitecs/PCBs/Ocyon Railer Mini/Rev0A/Ocyon Railer Mini.brd",
 		"/D/Embedded/Libraries/mbedtls/programs/ssl/ssl_server.c",
-		"/D/Embedded/Libraries/mbedtls/programs/x509/cert_write.c",
-		"/D/Embedded/Libraries/mbedtls/programs/x509/cert_app.c",
-		"/D/Embedded/Libraries/mbedtls/programs/x509/cert_req.c",
-		"/D/Sync/WorkSpace_S/EMB/LIB/AVR/EEPROM/EEPROM.c",
-		"/D/Sync/WorkSpace_S/Ocyon/sPad/docs/sPad.html",
-		"/D/Sync/the Awesome/Python/numbers.py",
-		"/D/Sync/WorkSpace_S/EMB/Railler Mini/LIBRARIES/DS3231/DS3231.c",
-		"/D/Sync/WorkSpace_S/EMB/Railler Mini/LIBRARIES/DS3231/DS3231.h",
-		"/D/Sync/WorkSpace_S/EMB/LIB/GL_Naming.h",
-		"/G/Drive_I.xml"
+		"/D/Embedded/Libraries/mbedtls/programs/x509/cert_write.c"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -725,6 +725,113 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"assert(rbs.is",
+			"assert(rbs.isFreed",
+			" && ",
+			"assert(bid",
+			"(free\\(.+?\\))( +)      &&",
+			"== (u8)~0",
+			"(u8)~0",
+			"(reserve\\(\\) == )(\\S+)\\)",
+			"(reserve\\(\\) == )(.+)\\)",
+			"rbs.is        ",
+			"(free\\(.+\\)); +a",
+			"(free\\(.+\\);) +a",
+			"free\\(",
+			"free\\(.+assert\\(",
+			"free",
+			"(reserve\\(.+?)\\)\\; +assert\\(",
+			"assert(rbs.is",
+			"free",
+			"rbs.free",
+			"assert(rbs.reserve()",
+			"reserveBits",
+			"bid1",
+			"deleteBlockList",
+			"bid0",
+			"print",
+			"bid2",
+			"bid1",
+			"bid",
+			"BlockID_NULL",
+			"BlockSpace",
+			"rbs(",
+			"BlockCount",
+			"0x00003FF0",
+			"0x00003FE4",
+			"0xFFFFFFF0",
+			"bits",
+			"0xFFFFFFE4",
+			"0x000003FF",
+			"0x00000AFF",
+			"Simple",
+			"&rbs",
+			"ReserveBits::SingleLayer",
+			"ReserveBits",
+			"SingleLayer",
+			"rbs",
+			"test",
+			"while",
+			"bits",
+			"Simple",
+			"test",
+			"testCLZ",
+			"ReserveBits::Si",
+			"ReserveBits",
+			"14C",
+			"\n    ",
+			"ReserveBits",
+			"{",
+			"0x000003FF",
+			"0x00003FF0",
+			"_CLZ",
+			"0x0FFFFFFF",
+			"0x000003FF",
+			"0x2FFFFFFF",
+			"0x000003FF",
+			"0x0FFFFFFF",
+			"0x00001FFF",
+			"0x7FFFFFFF",
+			"0x00003FFF",
+			"SingleLayerSimple",
+			"index",
+			" <<",
+			"bits",
+			"assert",
+			"reserve",
+			"cstdio",
+			"rollTimes",
+			"break",
+			"Simple",
+			"SingleLayerSimple",
+			"SingleLayer",
+			"CLZ",
+			"singleLayer",
+			"singleLayer_",
+			"ReserveBits",
+			"Intrinsic",
+			": ",
+			"_clz",
+			"intrinsic",
+			"Use",
+			"_clz",
+			"ReserveBitsUsing",
+			"using",
+			"ReserveBits",
+			"_useCLZ",
+			"ReserveBitsUsing",
+			"struct",
+			"ReserveBitsUsing",
+			"clzctz",
+			"ReserveBits_Instruction",
+			"ReserveBitsUsing",
+			"Intrinsic",
+			"condition",
+			"x",
+			"assert",
+			"NRFX_ASSERT",
+			"temp",
+			"Naming"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -732,6 +839,10 @@
 		"regex": true,
 		"replace_history":
 		[
+			"$1;$2",
+			"$1$2 && rbs.isReserved\\($2\\)\\)",
+			"$1 && a",
+			"$1 && "
 		],
 		"reverse": false,
 		"show_context": true,
@@ -790,7 +901,7 @@
 	"project": "lib.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 80.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -810,7 +921,7 @@
 		[
 			[
 				"",
-				"D:\\Sync\\the Awesome\\Python\\python.sublime-project"
+				"D:\\Sync\\WorkSpace_S\\EMB\\SES\\lib\\lib.sublime-project"
 			]
 		],
 		"width": 380.0
