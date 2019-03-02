@@ -19,10 +19,6 @@ u32 ROR(u32 number, u32 times)
     times %= 32;
     return (number >> times) | (number << (32 - times));
 }
-u32 ROR_Imm(u32 number, u32 times)
-{
-    return ROR(number, times);
-}
 
 u32 CTZ(u32 number)
 {

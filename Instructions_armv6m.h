@@ -17,16 +17,18 @@
 u32 ROR(u32 number, u32 times)
 {
     // Since Rs is not immediate, Rd must be the same as Rm
-    asm ("RORS %[Rd], %[Rm], %[Rs]" : [Rd] "=r" (number), [Rm] "r" (number), [Rs] "r" (times));
+    asm ("ROR %[Rd], %[Rs]" : [Rd] "=r" (number) : [Rs] "r" (times));
     return number;
 }
+/*
 u32 ROR_Imm(u32 number, u32 times)
 {
     // Since Is is immediate, <times> must be compile-time constant
     u32 result;
-    asm ("RORS %[Rd], %[Rm], %[Is]" : [Rd] "=r" (result), [Rm] "r" (number), [Is] "i" (times));
+    asm ("RORS %[Rd], %[Rm], %[Is]" : [Rd] "=r" (result) : [Rm] "r" (number), [Is] "i" (times));
     return number;
 }
+*/
 
 u32 CTZ(u32 number)
 {
