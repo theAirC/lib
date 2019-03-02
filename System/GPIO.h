@@ -71,14 +71,6 @@ namespace System::GPIO {
             return pinNumber;
         }
 
-        void connectBuffer()
-        {
-            instance->PIN_CNF[position] = SBI(instance->PIN_CNF[position], GPIO_PIN_CNF_INPUT_Pos);
-        }
-        void disconnectBuffer()
-        {
-            instance->PIN_CNF[position] = CBI(instance->PIN_CNF[position], GPIO_PIN_CNF_INPUT_Pos);
-        }
         void low()
         {
             instance->OUTCLR = 1UL << position;
@@ -110,6 +102,14 @@ namespace System::GPIO {
         void setOutputFast()
         {
             instance->DIRSET = 1UL << position;
+        }
+        void connectInputBuffer()
+        {
+            instance->PIN_CNF[position] = SBI(instance->PIN_CNF[position], GPIO_PIN_CNF_INPUT_Pos);
+        }
+        void disconnectInputBuffer()
+        {
+            instance->PIN_CNF[position] = CBI(instance->PIN_CNF[position], GPIO_PIN_CNF_INPUT_Pos);
         }
         void setInput()
         {
