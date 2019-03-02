@@ -4,6 +4,7 @@
 
 #include <lib/Naming.h>
 #include <lib/Instructions.h>
+#include <lib/System/Peripherals/Helpers.h>
 
 namespace System::Peripherals {
 
@@ -59,18 +60,19 @@ namespace System::Peripherals {
 
     struct ADC
     {
-        enum Task {
-            Task_Start = NRF_ADC_TASK_START,
-            Task_Stop = NRF_ADC_TASK_STOP
+        enum struct Task : u32 {
+            Start = offsetof(NRF_ADC_Type, TASKS_START), // ADC start sampling task
+            Stop  = offsetof(NRF_ADC_Type, TASKS_STOP),  // ADC stop sampling task
         };
-
-        enum Event {
-            Event_End = NRF_ADC_EVENT_END
+        enum struct Event : u32 {
+            End = offsetof(NRF_ADC_Type, EVENTS_END), // End of a conversion event
         };
-
-        enum Interrupt {
-            Interrupt_End = NRF_ADC_INT_END_MASK
+        enum struct Interrupt : u32 {
+            None = 0UL,
+            End  = NRF_ADC_INT_END_MASK, // Interrupt on END event
+            All  = ~0UL,
         };
+        enum struct Shortcut : u32 {};
 
         void init(ADC_Config config);
         void shutdown();
@@ -78,17 +80,6 @@ namespace System::Peripherals {
         void enable();
         void disable();
         bool isEnabled();
-
-        void triggerTask(Task task);
-        void clearEvent(Event event);
-        bool checkEvent(Event event);
-        bool checkAndClearEvent(Event event);
-        u32 getTaskAddress(Task task);
-        u32 getEventAddress(Event event);
-
-        void enableInterrupt(Interrupt interrupt);
-        void disableInterrupt(Interrupt interrupt);
-        bool isInterruptEnabled(Interrupt interrupt);
 
         void applyConfig(ADC_Config config);
 
@@ -102,15 +93,34 @@ namespace System::Peripherals {
         bool hasFinished();
         u32 getResult();
         u32 getOneSample();
+
+        void       triggerTask             (Task      task);
+        u32            getTaskAddress      (Task      task);
+        void         clearEvent            (Event     event);
+        bool         checkEvent            (Event     event);
+        bool checkAndClearEvent            (Event     event);
+        u32            getEventAddress     (Event     event);
+        u32            getInterrupts       ();
+        void        enableInterrupts       (Interrupt interrupts);
+        void       disableInterrupts       (Interrupt interrupts);
+        bool            isInterruptEnabled (Interrupt interrupt);
+        // void           setShortcuts        (Shortcut  shortcuts);
+        // u32            getShortcuts        ();
+        // void        enableShortcuts        (Shortcut  shortcuts);
+        // void       disableShortcuts        (Shortcut  shortcuts);
+        // bool            isShortcutEnabled  (Shortcut  shortcut);
     };
 
-    ADC adc;
+    ADC ADC0;
+
+    u32 operator|(ADC::Interrupt a, ADC::Interrupt b) { return (u32)a | (u32)b; }
+    u32 operator|(ADC::Shortcut a, ADC::Shortcut b) { return (u32)a | (u32)b; }
 
 /// Implementation
 
     void ADC::init(ADC_Config config)
     {
-        clearEvent(Event_End);
+        clearEvent(Event::End);
         applyConfig(config);
     }
     void ADC::shutdown()
@@ -157,49 +167,9 @@ namespace System::Peripherals {
         NRF_ADC->CONFIG = BFI(NRF_ADC->CONFIG, ADC_CONFIG_PSEL_Pos, ADC_CONFIG_PSEL_Msk, channel);
     }
 
-    void ADC::triggerTask(Task task)
-    {
-        nrf_adc_task_trigger((nrf_adc_task_t)task);
-    }
-    void ADC::clearEvent(Event event)
-    {
-        nrf_adc_event_clear((nrf_adc_event_t)event);
-    }
-    bool ADC::checkEvent(Event event)
-    {
-        return nrf_adc_event_check((nrf_adc_event_t)event);
-    }
-    bool ADC::checkAndClearEvent(Event event)
-    {
-        bool result = checkEvent(event);
-        if (result) clearEvent(event);
-        return result;
-    }
-    u32 ADC::getTaskAddress(Task task)
-    {
-        return nrf_adc_task_address_get((nrf_adc_task_t)task);
-    }
-    u32 ADC::getEventAddress(Event event)
-    {
-        return nrf_adc_event_address_get((nrf_adc_event_t)event);
-    }
-
-    void ADC::enableInterrupt(Interrupt interrupt)
-    {
-        nrf_adc_int_enable(interrupt);
-    }
-    void ADC::disableInterrupt(Interrupt interrupt)
-    {
-        nrf_adc_int_disable(interrupt);
-    }
-    bool ADC::isInterruptEnabled(Interrupt interrupt)
-    {
-        return nrf_adc_int_enable_check(interrupt);
-    }
-
     void ADC::start()
     {
-        triggerTask(Task_Start);
+        triggerTask(Task::Start);
     }
     bool ADC::isBusy()
     {
@@ -207,7 +177,7 @@ namespace System::Peripherals {
     }
     bool ADC::hasFinished()
     {
-        return checkAndClearEvent(Event_End);
+        return checkAndClearEvent(Event::End);
     }
     u32 ADC::getResult()
     {
@@ -219,5 +189,21 @@ namespace System::Peripherals {
         while (!hasFinished());
         return getResult();
     }
+
+    void ADC::triggerTask        (Task task)            {        Helpers::triggerTask        (NRF_ADC, (u32)task);  }
+    u32  ADC::getTaskAddress     (Task task)            { return Helpers::getTaskAddress     (NRF_ADC, (u32)task);  }
+    void ADC::clearEvent         (Event event)          {        Helpers::clearEvent         (NRF_ADC, (u32)event); }
+    bool ADC::checkEvent         (Event event)          { return Helpers::checkEvent         (NRF_ADC, (u32)event); }
+    bool ADC::checkAndClearEvent (Event event)          { return Helpers::checkAndClearEvent (NRF_ADC, (u32)event); }
+    u32  ADC::getEventAddress    (Event event)          { return Helpers::getEventAddress    (NRF_ADC, (u32)event); }
+    u32  ADC::getInterrupts      ()                     { return NRF_ADC->INTENSET;                                 }
+    void ADC::enableInterrupts   (Interrupt interrupts) {        NRF_ADC->INTENSET = (u32)interrupts;               }
+    void ADC::disableInterrupts  (Interrupt interrupts) {        NRF_ADC->INTENCLR = (u32)interrupts;               }
+    bool ADC::isInterruptEnabled (Interrupt interrupt)  { return NRF_ADC->INTENSET & (u32)interrupt;                }
+    // void ADC::setShortcuts       (Shortcut shortcuts)   {        NRF_ADC->SHORTS   = (u32)shortcuts;                }
+    // u32  ADC::getShortcuts       ()                     { return NRF_ADC->SHORTS;                                   }
+    // void ADC::enableShortcuts    (Shortcut shortcuts)   {        NRF_ADC->SHORTS  |= (u32)shortcuts                 }
+    // void ADC::disableShortcuts   (Shortcut shortcuts)   {        NRF_ADC->SHORTS  &= (u32)shortcuts                 }
+    // bool ADC::isShortcutEnabled  (Shortcut shortcut)    { return NRF_ADC->SHORTS   & (u32)shortcuts                 }
 
 }
