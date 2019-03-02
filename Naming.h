@@ -1,12 +1,17 @@
 #pragma once
 
 #ifdef __TESTING__
-#include <cassert>
-#include <cstdint>
-#include <cstdio>
+    #include <cassert>
+    #include <cstdint>
+    #include <cstdio>
 #else
-#include <modules/nrfx/nrfx.h>
-#define assert(condition) NRFX_ASSERT(condition)
+    #include <modules/nrfx/nrfx.h>
+    void HardFault_Handler();
+    #ifdef DEBUG
+        #define assert(condition) { if (!(condition)) HardFault_Handler(); }
+    #else
+        #define assert(condition)
+    #endif
 #endif
 
 typedef uint8_t  u8;
