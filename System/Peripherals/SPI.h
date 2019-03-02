@@ -7,6 +7,8 @@
 
 namespace System::Peripherals {
 
+/// Definitions
+
     struct SPI
     {
         NRF_SPI_Type *const instance;
@@ -111,6 +113,8 @@ namespace System::Peripherals {
 
     u32 operator|(SPI::Interrupt a, SPI::Interrupt b) { return (u32)a | (u32)b; }
     u32 operator|(SPI::Shortcut a, SPI::Shortcut b) { return (u32)a | (u32)b; }
+
+/// Implementation
 
     void SPI::init(Config config)
     {
